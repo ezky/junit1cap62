@@ -1,5 +1,6 @@
 package br.emprestimo.modelo;
 
+import javax.management.RuntimeErrorException;
 
 public class Livro {
 	private String isbn;
@@ -27,6 +28,9 @@ public class Livro {
 		return autor;
 	}
 	public void setAutor(String autor) {
+		if (autor == "" | autor ==null){
+			throw new RuntimeException("Autor invalido");
+		}
 		this.autor = autor;
 	}
 

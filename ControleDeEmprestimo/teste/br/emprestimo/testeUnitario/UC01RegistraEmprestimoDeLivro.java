@@ -64,7 +64,49 @@ public class UC01RegistraEmprestimoDeLivro {
 	    assertTrue(dataEsperada.equals(dataObtida));
 	}
 	@Test
-	public void CT05UC01FB_registrar_emprestimo_com_data_invalida() {
+	public void CT05UC01FB_registrar_emprestimo_com_data_valida() {
 		assertTrue(emprestimo.validaData("29/03/2000"));
+	}
+	@Test
+	public void CT06UC01FB_registrar_emprestimo_com_data_invalida() {
+		assertFalse(emprestimo.validaData("30/02/2000"));
+	}
+	@Test
+	public void CT07UC01FB_registrar_emprestimo_com_data_invalida() {
+		assertFalse(emprestimo.validaData("07-04-2018"));
+	}
+
+	@Test
+	public void CT08UC01FB_registrar_emprestimo_com_data_valida() {
+		emprestimo.setDataEmprestimo("07/04/2018");
+		assertEquals("07/04/2018", emprestimo.getDataEmprestimo());
+	}
+	@Test(expected = RuntimeException.class)
+	public void CT09UC01FB_registrar_emprestimo_com_data_invalida() {
+		emprestimo.setDataEmprestimo("07-04-2018");
+	}
+	
+	//Get Livro
+	@Test
+	public void CT03UC06_GetLivro_com_isbn() {
+		assertEquals("121212", emprestimo.getLivro().getIsbn());
+	}
+	@Test
+	public void CT03UC06_GetLivro_com_Titulo() {
+		assertEquals("Engenharia de Software", emprestimo.getLivro().getTitulo());
+	}
+	@Test
+	public void CT03UC06_GetLivro_com_Autor() {
+		assertEquals("Pressman", emprestimo.getLivro().getAutor());
+	}
+	
+	//Get Usuario
+	@Test
+	public void CT03UC06_GetUsuario_com_Nome() {
+		assertEquals("Jose da Silva", emprestimo.getUsuario().getNome());
+	}
+	@Test
+	public void CT03UC06_GetUsuario_com_RA() {
+		assertEquals("11111", emprestimo.getUsuario().getRa());
 	}
 }

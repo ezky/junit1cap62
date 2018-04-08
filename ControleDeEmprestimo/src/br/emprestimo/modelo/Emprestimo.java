@@ -31,7 +31,11 @@ public class Emprestimo {
 	}
 
 	public void setDataEmprestimo(String dataEmprestimo) {
-		this.dataEmprestimo = dataEmprestimo;
+		if(validaData(dataEmprestimo)){
+			this.dataEmprestimo = dataEmprestimo;
+		}else{
+			throw new RuntimeException("Data invalida");
+		}
 	}
 
 	public String getDataDevolucao() {
@@ -39,7 +43,7 @@ public class Emprestimo {
 	}
 
 	public void setDataDevolucao(String data) {
-		this.dataDevolucao = data;
+			this.dataDevolucao = data;
 	}
 
 	/**
