@@ -12,14 +12,10 @@ public class ConectaDB {
 	String usuario = "root";
 	String senha = "alunofatec";
 
-	public ConectaDB(String driver, String url, String usuario, String senha){
-		this.driver = driver;
-		this.url = url;
-		this.usuario = usuario;
-		this.senha = senha;
+	public ConectaDB(){
 	}
 	
-	public Object getConection() {
+	public Connection getConnection() {
 		try {
 			Class.forName(driver);
 			return (Connection) DriverManager.getConnection(url,usuario,senha);

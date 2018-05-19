@@ -5,10 +5,20 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Emprestimo {
+	private static int numero = 0;
 	private Livro livro;
 	private Usuario usuario;
 	private String dataEmprestimo;
 	private String dataDevolucao;
+	
+	
+	public int getEmprestimoNumero() {
+		return numero;
+	}
+
+	public void seEmprestimoNumero(int numero) {
+		this.numero = numero;
+	}
 
 	public Livro getLivro() {
 		return livro;
